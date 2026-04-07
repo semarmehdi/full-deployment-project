@@ -1,0 +1,17 @@
+name: attrition_detector
+docker_env:
+  # Name of the image we'll be running a container from
+  image: mehdisemar2/mlflow3-mehdi # remplacez par votre image !
+  # Volume binding
+  volumes: ["$(pwd):/home/user/app"]
+  environment:
+    [
+      "MLFLOW_TRACKING_URI",
+      "AWS_ACCESS_KEY_ID",
+      "AWS_SECRET_ACCESS_KEY",
+      "BACKEND_STORE_URI",
+      "ARTIFACT_ROOT",
+    ]
+entry_points:
+  main:
+    command: "python train.py"
